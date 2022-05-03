@@ -1,0 +1,53 @@
+<div class="content">
+    <h3>Sửa sản phẩm</h3>
+
+    <form method="POST" action="/menu/{{menu._id}}?_method=PUT">
+        <div class="form-group">
+            <label for="name">Tên sản phẩm</label>
+            <input type="text" class="form-control" value="{{menu.name}}" required id="name" name="name" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="price">Giá sản phẩm</label>
+            <input type="text" class="form-control" value="{{menu.price}}" required id="price" name="price" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="image">Ảnh sản phẩm</label>
+            <input type="text" class="form-control" value="{{menu.image}}" required id="image" name="image" autocomplete="off">
+        </div>
+        <button type="submit" class="btn-create">Lưu lại</button>
+    </form>
+</div>
+
+<style>
+    .content {
+        margin: 5% 10%;
+    }
+    h3 {
+        font-size: 28px;
+        color: #000;
+    }
+    .form-group label {
+        font-size: 16px;
+        color: #000;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 10px;
+    }
+    .form-control {
+        padding: 7px 12px;
+        font-size: 16px;
+        display: block;
+        width: 100%;
+        border: 1px solid #ccc;
+        margin-bottom: 24px;
+        border-radius: 3px;
+    }
+    .btn-create {
+        color: #fff;
+        background-color: #000;
+        font-size: 14px;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+    }
+</style>

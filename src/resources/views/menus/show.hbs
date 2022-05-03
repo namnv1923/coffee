@@ -1,0 +1,717 @@
+<header>
+        <div class="head">
+            <div class="product">
+                <h2>Danh mục sản phẩm</h2>
+            </div>
+            <div class="sidebar">
+                <ul class="menu">
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Menu</a></li>
+                    <li><a href="/">Testimonials</a></li>
+                    <li><a href="/">Gallery</a></li>
+                    <li><a href="/">Contact</a></li>
+                </ul>
+            </div>
+            <div class="cart">
+                <i class="ti-shopping-cart"></i><sub id="qty-cart" style="color: #fff;"></sub>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="name__product">
+            <h2>{{menu.name}}</h2>
+        </div>
+    <div class="main">
+        <div id="photo">
+            <img src="{{menu.image}}" alt="">
+        </div>
+        <div class="infor">
+            <h2>{{menu.name}}</h2>
+                <div class="price infor__item">
+                    <p class="infor--p">Giá:</p>
+                    <p class="price__coffee" id="infor--price">{{menu.price}}đ</p>
+                </div>
+                <div class="size infor__item">
+                    <p class="infor--p">Size:</p>
+                    <button id="sizes" class="size__btn" value="S" onclick="size(this.value)">S</button>
+                    <button id="sizem" class="size__btn" value="M" onclick="size(this.value)">M</button>
+                    <button id="sizel" class="size__btn" value="L" onclick="size(this.value)">L</button>
+                </div>
+                <div class="quantity infor__item">
+                    <p class="infor--p">Số lượng:</p>
+                    <input type="button" value="-" onclick="sub()" class="sub--btn quantity--btn">
+                    <input type="text" name="quantity" id="quantity__num" value="1">
+                    <input type="button" value="+" onclick="add()" class="add--btn quantity--btn">
+                </div>
+                <div class="order infor__item">
+                    <button class="order__btn js-order" onclick="order_btn()">Đặt mua ngay</button>
+                </div>
+            </div>
+        <div class="support">
+            <div class="contact">
+                <h3>Hỗ trợ khách hàng</h3>
+                <div class="email">
+                    <p>Email:</p>
+                    <a href="mailto:coffee@gmail.com">coffee@gmail.com</a>
+                </div>
+                <div class="phone">
+                    <p>Phone:</p>
+                    <div class="phone-num"><a href="tel:+841234567890" class="num1">+84-123 456 7890</a></div>
+                    <div class="phone-num"><a href="tel:+841234567891" class="num2">+84-123 456 7891</a></div>
+                </div>
+                <div class="cut">
+                    <hr>
+                </div>
+                <div class="address">
+                    <p>Địa chỉ: 123 Cầu Giấy, Hà Nội</p>
+                </div>
+            </div>
+            <div class="shipping">
+                <h3>Giao hàng miễn phí</h3>
+                <div class="free-ship shipping--items">
+                    <p>"Giao hàng miễn phí trong phạm vi bán kính 10km của cửa hàng"</p>
+                </div>
+                <div class="open-hour shipping--items">
+                    <div class="mon-thur">
+                        <p>Thứ 2 - Thứ 5</p>
+                        <p>8a.m - 10p.m</p>
+                    </div>
+                    <div class="fri-sun">
+                        <p>Thứ 6 - Chủ nhật</p>
+                        <p>7a.m - 11p.m</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <footer>
+        <p class="footer_copyright">Copyright © 2022 Cửa hàng. Powered by Cửa hàng</p>
+        <div class="footer_info">
+            <a href="#" class="footer_link">
+                <i class="ti-twitter"></i>
+            </a>
+            <a href="#" class="footer_link">
+                <i class="ti-facebook"></i>
+            </a>
+            <a href="#" class="footer_link">
+                <i class="ti-instagram"></i>
+            </a>
+        </div>
+    </footer>
+    <!-- Dat hang -->
+    <div class="modal js-modal">
+        <div class="modal-container js-modal-container">
+            <div class="modal-close js-modal-close">
+                <i class="ti-close"></i>
+            </div>
+            <div class="modal-header">
+                <i class="ti-truck"></i>
+                Đặt hàng
+            </div>
+            <div class="modal-body">
+                <div class="row--order">
+                    <div class="modal-user">
+                        <label for="user" class="modal-label">
+                            <i class="ti-user"></i>
+                            Người nhận
+                        </label>
+                        <input id="user" type="text" class="modal-input"  placeholder="Tên người nhận">
+                    </div>
+                    <div class="modal-phone">
+                        <label for="send" class="modal-label">
+                            <i class="ti-mobile"></i>
+                            Số điện thoại
+                        </label>
+                        <input id="send" type="tel" class="modal-input" placeholder="Số điện thoại người nhận">
+                    </div>
+                </div>
+                <label for="addr__user" class="modal-label">
+                    <i class="ti-map-alt"></i>
+                    Địa chỉ
+                </label>
+                <div class="addr--select">
+                    <div class="addr__city">
+                        Tỉnh/Thành phố:
+                        <select name="addr__city" id="city" >
+                            <option value="Hà Nội">Hà Nội</option>
+                        </select>
+                    </div>
+                    <div class="addr__dis">
+                        Quận/huyện:
+                        <select name="addr__dis" id="dis" >
+                            <option value="Cầu Giấy">Cầu Giấy</option>
+                        </select>
+                    </div>
+                </div>
+                <input id="addr__user" type="text" class="modal-input" placeholder="Địa chỉ người nhận">
+                <div class="infor--order">
+                    <div class="name__order">
+                        <p>Tên: </p>
+                        <span id="name-prd">{{menu.name}}</span>
+                    </div>
+                    <div class="qty__order">
+                        <p>Số lượng: </p>
+                        <span id="qty--num"></span>
+                    </div>
+                    <div class="size__order">
+                        <p>Size: </p>
+                        <span id="size--num"></span>
+                    </div>
+                    <div class="price__order">
+                        <p>Tổng tiền: </p>
+                        <span id="price--num"></span>
+                    </div>
+                </div>
+                <button class="dat-hang js-successful" onclick="dathang()">
+                    Đặt hàng <i class="ti-check"></i>
+                </button>
+            </div>
+        </div>
+        {{!-- <script src="./assets/js/coffee.js"></script> --}}
+
+<style>
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    /* font-family: 'Cormorant Garamond', serif; */
+    font-family: 'Lato', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.full-right {
+    float: right !important;
+}
+header {
+    background-color: #b37e6b;
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    position: relative;
+    margin: auto;
+    width: 80%;
+}
+.product{
+    font-size: 18px;
+    padding-left: 10px;
+    color: #fff;
+    line-height: 50px;
+}
+.product h2 {
+    margin: 0;
+}
+/* .sidebar{
+    
+} */
+.menu{
+    margin-right: 100px;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100%;
+}
+.menu li{
+    display: inline-block;
+    padding: 0 20px;
+    margin: 0 10px;
+    height: 100%;
+}
+.menu li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 50px;
+}
+.menu li:hover{
+    background-color: rgb(254, 254, 94);
+}
+.menu li:hover a{
+    color: #000;
+}
+.cart{
+    position: absolute;
+    line-height: 50px;
+    right: 30px;
+    top: 8px;
+}
+.ti-shopping-cart{
+    color: #fff;
+    font-size: 25px;
+}
+.cart:hover .ti-shopping-cart{
+    color: red;
+}
+section{
+    margin: auto;
+    width: 88%;
+}
+.name__product{ 
+    color: rgb(86, 32, 32);
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+}
+.name__product h2 {
+    font-size: 38px;
+    margin: 20px 0;
+}
+.main{
+    display: flex;
+}
+#photo img{
+    width: 450px;
+    height: 413px;
+    object-fit: cover;
+}
+.infor{
+    width: 40%;
+    background-color: #edeae8;
+    position: relative;
+    height: 413px;
+}
+.infor__item{
+    padding: 10px;
+    padding-left: 50px;
+}
+.infor h2{
+    padding: 10px;
+    font-size: 22px;
+}
+.price{
+    display: flex;
+}
+.price p{
+    padding-right: 70px;
+    font-size: 18px;
+}
+/* .price__coffee{
+
+} */
+.size{
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+.size p{
+    line-height: 35px;
+    padding-right: 60px;
+    font-size: 18px;
+}
+
+.size__btn{
+    width: 40px;
+    height: 35px;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #fff;
+    border: 1px solid;
+    font-size: 17px;
+}
+.size__btn:hover{
+    color: red;
+}
+.quantity{
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+.quantity p{
+    line-height: 30px;
+    padding-right: 20px;
+    font-size: 18px;
+}
+#quantity__num{
+    width: 37px;
+    height: 33px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid;
+    font-size: 17px;
+}
+.quantity--btn{
+    width: 40px;
+    height: 35px;
+    margin: 0 10px;
+    font-size: 23px;
+    line-height: 20px;
+    background-color: #fff;    
+    border: 1px solid;
+}
+.quantity--btn:active{
+    color: red;
+}
+/* .sub--btn{
+    
+}
+.add--btn{
+
+}
+.order{
+    
+} */
+.order__btn{
+    position: absolute;
+    left: 25%;
+    width: 55%;
+    height: 13%;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    box-shadow: 0.1px 0.1px 2px 2px rgb(128, 128, 128);
+    background-color: red;
+    color: #fff;
+    text-transform: uppercase;
+}
+.order__btn:hover{
+    background-color: greenyellow;
+    color: #000;
+}
+.support{
+    width: 22%;
+    padding-left: 15px;
+}
+.contact{
+    background-color: #f6f4f4;
+    padding-left: 15px;
+    border: 1px solid;
+    padding-top: 10px;
+    font-size: 17px;
+}
+.contact h3 {
+    margin: 4px 0 0;
+}
+.email{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.email p {
+    margin: 8px 0 0;
+}
+.email a{
+    text-decoration: none;
+    padding-left: 10px;
+}
+.phone{
+    padding: 10px;
+}
+.phone p {
+    margin: 0;
+}
+.phone-num{
+    text-decoration: none;
+    padding: 10px 20px 0;
+}
+.phone-num a{
+    text-decoration: none;
+}
+.cut{
+    background-color: #000;
+    width: 60%;
+    margin: auto;
+}
+.address{
+    padding: 14px 14px 14px 0;
+}
+.address p {
+    margin: 0;
+    line-height: 20px;
+}
+.shipping{
+    margin-top: 10px;
+    background-color: #b37e6b;
+    color: white;
+    padding-left: 10px;
+}
+.shipping h3{
+    padding: 10px;
+    margin: 0;
+    font-size: 17px;
+}
+.free-ship{
+    font-style: italic;
+}
+.shipping--items{
+    padding: 5px;
+}
+.shipping--items p {
+    margin: 0;
+    font-size: 17px;
+}
+/* .open-hour{
+
+} */
+.mon-thur,.fri-sun{
+    padding: 5px;
+}
+
+footer{
+    background-color: #edeae8;
+    padding: 50px 40px;
+    text-align: center;
+    margin-top: 8px;
+}
+.footer_copyright{
+    font-size: 14px;
+    color: #7f7b76;
+}
+.footer_info{
+    float: right;
+}
+.footer_link{
+    padding: 10px;
+    font-size: 17px;
+}
+.footer_info a{
+    text-decoration: none;
+    color: #b37e6b;
+}
+.modal {
+    padding: 0 5px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-container {
+    background-color: #fff;
+    width: 800px;
+    min-height: 200px;
+    position: relative;
+    animation: modalFadeIn ease .6s;
+}
+
+@media only screen and (max-width: 1000px)
+{
+    .modal-container {
+        width: 600px;
+    }
+}
+
+.modal-header {
+    background-color: #b37e6b;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #fff;
+}
+
+.modal .ti-truck {
+    margin-right: 18px;
+}
+
+.modal-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #fff;
+    padding: 12px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.modal-close:hover {
+    background-color: red;
+    opacity: 1;
+}
+
+.modal-body {
+    padding: 16px;
+}
+
+.modal-label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.modal-input {
+    border: 1px solid #ccc;
+    width: 97%;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+.row--order{
+    display: flex;
+    
+}
+.modal-user{
+    width: 45%;
+}
+.modal-phone{
+    width: 45%;
+    padding-left: 63px;
+}
+.addr--select{
+    display: flex;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 16px;
+}
+/* .addr__city{
+    
+} */
+.addr__dis{
+    padding-left: 210px;
+}
+#city,#dis{
+    padding: 2px 6px;
+}
+.dat-hang {
+    background-color: #059624;
+    border: none;
+    color: #fff;
+    width: 100%;
+    font-size: 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 15px;
+}
+
+.dat-hang:hover {
+    opacity: 0.8;
+}
+.infor--order{
+    display: flex;
+    padding-bottom: 30px;
+    font-size: 16px;
+    align-items: center;
+}
+.name__order{
+    display: flex;
+    align-items: center;
+}
+#qty--num,#size--num,#price--num,#name-prd{
+    padding: 0 10px;
+}
+.size__order,.price__order,.qty__order{
+    display: flex;
+    padding-left: 50px;
+    align-items: center;
+}
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-150px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+<script>
+    //So luong
+function sub()
+{
+    var n = parseInt(document.getElementById("quantity__num").value);
+    n = n-1;
+    if(n<=0){
+        n=1;
+    }
+    document.getElementById("quantity__num").value = n;
+}
+function add()
+{
+    var n = parseInt(document.getElementById("quantity__num").value);
+    n = n+1;
+    if(n<=0){
+        n=1;
+    }
+    document.getElementById("quantity__num").value = n;
+}
+
+//đặt hàng
+const addBtns = document.querySelectorAll('.js-order')
+const modal = document.querySelector('.modal')
+const modalClose = document.querySelector('.js-modal-close')
+const modalContainer = document.querySelector('.js-modal-container')
+const successful = document.querySelector('.js-successful')
+
+//Hàm hiện modal đặt hàng
+function showOrder() {
+    modal.classList.add('open')
+}
+
+//Hàm ẩn modal đặt hàng
+function hideOrder() {
+    modal.classList.remove('open')
+}
+
+//Lặp qua từng thẻ button và nghe hành vi click
+for ( const addBtn of addBtns) {
+    addBtn.addEventListener('click', showOrder)
+}
+
+//Nghe hành vi click vào button close
+modalClose.addEventListener('click', hideOrder)
+
+modal.addEventListener('click', hideOrder)
+
+modalContainer.addEventListener('click', function(event) {
+    event.stopPropagation()
+})
+function dathang(){
+    user = document.getElementById("user").value;
+    phone = document.getElementById("send").value;
+    address = document.getElementById("addr__user").value;
+    if(user==""||phone==""||address==""){
+        window.alert("Vui lòng điền vào biểu mẫu bên dưới");
+    }
+    else{
+        if(confirm("Đơn hàng của quý khách đã được đặt thành công. Chúng tôi sẽ giao hàng trong thời gian ngắn nhất. Cảm ơn quý khách đã tin tưởng và sử dụng!")) {
+            window.location.replace("/")
+        }
+    }
+    
+}
+function size(k){
+    var size = document.getElementById("size--num");
+    var price = document.getElementById("infor--price");
+    size.innerHTML = k;
+    if(k=="S"){
+        price.innerHTML = "{{menu.price}}đ";
+        document.querySelector('#size--num').innerHTML = k;
+    }
+    else if(k=="M"){
+        price.innerHTML = "{{sum menu.price 5000}}đ";
+        document.querySelector('#size--num').innerHTML = k;
+    }
+    else if(k=="L"){
+        price.innerHTML = "{{sum menu.price 10000}}đ";
+        document.querySelector('#size--num').innerHTML = k;
+    }
+}
+function order_btn(){
+    var n = document.getElementById("quantity__num").value;
+    if(n<=0){
+        n=1;
+    }
+    document.getElementById("quantity__num").value = n;
+    document.getElementById("qty--num").innerHTML = n;
+    document.getElementById("qty-cart").innerHTML = n;
+    document.querySelector('#price--num').innerHTML = `${n * Number.parseInt(document.getElementById("infor--price").innerText)}đ`
+    
+}
+</script>

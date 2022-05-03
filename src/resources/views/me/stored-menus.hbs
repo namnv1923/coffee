@@ -1,0 +1,116 @@
+<div class="content">
+    <a href="/" class="home-page">Trang chủ</a>
+    <h3>Sản phẩm của tôi</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Giá sản phẩm</th>
+                <th scope="col">Ngày mua</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each menu}}
+            <tr>
+                <th scope="row">{{sum @index 1}}</th>
+                <td>{{this.name}}</td>
+                <td>{{this.price}}đ</td>
+                <td>{{this.createdAt}}</td>
+                <td>
+                    <a href="/menu/{{this._id}}/edit" class="btn-update">Sửa</a>
+                    <button class="btn-delete">Xoá</button>
+                    <form class="delete-menu-form" method="POST" action="/menu/{{this._id}}?_method=DELETE"></form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    const btnDeletes = document.querySelectorAll('.btn-delete')
+    const deleteForms = document.querySelectorAll('.delete-menu-form')
+
+    btnDeletes.forEach(function(btnDelete, index) {
+        btnDelete.onclick = function() {
+            deleteForms[index].submit()
+        }
+    })
+</script>
+
+<style>
+    .content {
+        margin: 5% 5%;
+    }
+    .home-page {
+        text-decoration: none;
+        font-size: 22px;
+        color: #000;
+    }
+    h3 {
+        font-size: 28px;
+        color: #000;
+        margin-bottom: 40px;
+    }
+    .table {
+        width: 100%;
+    }
+    thead tr {
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+    }
+    tbody tr {
+        border-top: 1px solid rgb(230, 228, 228);
+        border-bottom: 1px solid rgb(230, 228, 228);
+    }
+    tr {
+        display: flex;
+        align-items: center;
+    }
+    tbody th,
+    tbody td,
+    thead th {
+        margin: 20px;
+        font-size: 24px;
+        text-align: left;
+        display: inline-block;
+    }
+    tbody tr th,
+    thead th:nth-child(1) {
+        width: 30px;
+    }
+    tbody tr td:nth-child(2),
+    thead th:nth-child(2) {
+        width: 220px;
+    }
+    tbody tr td:nth-child(3),
+    thead th:nth-child(3) {
+        width: 220px;
+    }
+    tbody tr td:nth-child(4),
+    thead th:nth-child(4) {
+        flex: 1;
+        justify-content: left;
+    }
+    tbody td, tbody th {
+        margin: 14px 20px;
+        display: inline-block;
+        font-size: 20px;
+    }
+    .btn-update,
+    .btn-delete {
+        color: #007bff;
+        text-decoration: none;
+    }
+    .btn-update {
+        margin-right: 18px;
+    }
+    .btn-delete {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+</style>
