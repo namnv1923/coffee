@@ -5,7 +5,7 @@ const methodOverride = require('method-override');
 const app = express();
 const port = process.env.PORT || 3000;
 
-const route = require('./routes/index');
+const route = require('./routes/index.js');
 const db = require('./config/db');
 
 app.use(express.static(path.join(__dirname, 'public')));
