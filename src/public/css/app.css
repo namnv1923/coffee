@@ -25,7 +25,8 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #fff; }
+  border: 1px solid #fff;
+  text-decoration: none; }
 
 .btn:hover {
   background-color: #fff;

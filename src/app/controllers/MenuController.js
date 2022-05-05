@@ -1,14 +1,19 @@
 const Menu = require('../models/Menu.js')
 const { mongooseToObject } = require('../../util/mongoose')
+const { mutipleMongooseToObject } = require('../../util/mongoose')
 
 class MenuController {
 
     // [GET] /menu/:slug
     show(req, res, next) {
-        Menu.findOne({ slug: req.params.slug })
-            .then(menu => {
+
+        Promise.all([Menu.findOne({ slug: req.params.slug }), Menu.find({})])
+            .then(([menu, otherMenus]) => {
                 res.render('menus/show', {
-                    menu: mongooseToObject(menu)
+                    menu: mongooseToObject(menu),
+                    otherMenus: mutipleMongooseToObject(otherMenus.filter(function(otherMenu) {
+                        return otherMenu.slug != menu.slug
+                    }))
                 })
             })
             .catch(next)

@@ -21,69 +21,83 @@
         <div class="name__product">
             <h2>{{menu.name}}</h2>
         </div>
-    <div class="main">
-        <div id="photo">
-            <img src="{{menu.image}}" alt="">
-        </div>
-        <div class="infor">
-            <h2>{{menu.name}}</h2>
-                <div class="price infor__item">
-                    <p class="infor--p">Giá:</p>
-                    <p class="price__coffee" id="infor--price">{{menu.price}}đ</p>
-                </div>
-                <div class="size infor__item">
-                    <p class="infor--p">Size:</p>
-                    <button id="sizes" class="size__btn" value="S" onclick="size(this.value)">S</button>
-                    <button id="sizem" class="size__btn" value="M" onclick="size(this.value)">M</button>
-                    <button id="sizel" class="size__btn" value="L" onclick="size(this.value)">L</button>
-                </div>
-                <div class="quantity infor__item">
-                    <p class="infor--p">Số lượng:</p>
-                    <input type="button" value="-" onclick="sub()" class="sub--btn quantity--btn">
-                    <input type="text" name="quantity" id="quantity__num" value="1">
-                    <input type="button" value="+" onclick="add()" class="add--btn quantity--btn">
-                </div>
-                <div class="order infor__item">
-                    <button class="order__btn js-order" onclick="order_btn()">Đặt mua ngay</button>
-                </div>
+        <div class="main">
+            <div id="photo">
+                <img src="{{menu.image}}" alt="">
             </div>
-        <div class="support">
-            <div class="contact">
-                <h3>Hỗ trợ khách hàng</h3>
-                <div class="email">
-                    <p>Email:</p>
-                    <a href="mailto:coffee@gmail.com">coffee@gmail.com</a>
-                </div>
-                <div class="phone">
-                    <p>Phone:</p>
-                    <div class="phone-num"><a href="tel:+841234567890" class="num1">+84-123 456 7890</a></div>
-                    <div class="phone-num"><a href="tel:+841234567891" class="num2">+84-123 456 7891</a></div>
-                </div>
-                <div class="cut">
-                    <hr>
-                </div>
-                <div class="address">
-                    <p>Địa chỉ: 123 Cầu Giấy, Hà Nội</p>
-                </div>
-            </div>
-            <div class="shipping">
-                <h3>Giao hàng miễn phí</h3>
-                <div class="free-ship shipping--items">
-                    <p>"Giao hàng miễn phí trong phạm vi bán kính 10km của cửa hàng"</p>
-                </div>
-                <div class="open-hour shipping--items">
-                    <div class="mon-thur">
-                        <p>Thứ 2 - Thứ 5</p>
-                        <p>8a.m - 10p.m</p>
+            <div class="infor">
+                <h2>{{menu.name}}</h2>
+                    <div class="price infor__item">
+                        <p class="infor--p">Giá:</p>
+                        <p class="price__coffee" id="infor--price">{{menu.price}}đ</p>
                     </div>
-                    <div class="fri-sun">
-                        <p>Thứ 6 - Chủ nhật</p>
-                        <p>7a.m - 11p.m</p>
+                    <div class="size infor__item">
+                        <p class="infor--p">Size:</p>
+                        <button id="sizes" class="size__btn" value="S" onclick="size(this.value)">S</button>
+                        <button id="sizem" class="size__btn" value="M" onclick="size(this.value)">M</button>
+                        <button id="sizel" class="size__btn" value="L" onclick="size(this.value)">L</button>
+                    </div>
+                    <div class="quantity infor__item">
+                        <p class="infor--p">Số lượng:</p>
+                        <input type="button" value="-" onclick="sub()" class="sub--btn quantity--btn">
+                        <input type="text" name="quantity" id="quantity__num" value="1">
+                        <input type="button" value="+" onclick="add()" class="add--btn quantity--btn">
+                    </div>
+                    <div class="order infor__item">
+                        <button class="order__btn js-order" onclick="order_btn()">Đặt mua ngay</button>
                     </div>
                 </div>
+            <div class="support">
+                <div class="contact">
+                    <h3>Hỗ trợ khách hàng</h3>
+                    <div class="email">
+                        <p>Email:</p>
+                        <a href="mailto:coffee@gmail.com">coffee@gmail.com</a>
+                    </div>
+                    <div class="phone">
+                        <p>Phone:</p>
+                        <div class="phone-num"><a href="tel:+841234567890" class="num1">+84-123 456 7890</a></div>
+                        <div class="phone-num"><a href="tel:+841234567891" class="num2">+84-123 456 7891</a></div>
+                    </div>
+                    <div class="cut">
+                        <hr>
+                    </div>
+                    <div class="address">
+                        <p>Địa chỉ: 123 Cầu Giấy, Hà Nội</p>
+                    </div>
+                </div>
+                <div class="shipping">
+                    <h3>Giao hàng miễn phí</h3>
+                    <div class="free-ship shipping--items">
+                        <p>"Giao hàng miễn phí trong phạm vi bán kính 10km của cửa hàng"</p>
+                    </div>
+                    <div class="open-hour shipping--items">
+                        <div class="mon-thur">
+                            <p>Thứ 2 - Thứ 5</p>
+                            <p>8a.m - 10p.m</p>
+                        </div>
+                        <div class="fri-sun">
+                            <p>Thứ 6 - Chủ nhật</p>
+                            <p>7a.m - 11p.m</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        <h2 class="other_product-name">Các sản phẩm khác của shop</h2>
+        <div class="row">
+            {{#each otherMenus}}
+            <div class="col l-2-4 m-3 c-4">
+                <div class="other_product-item">
+                    <a href="/menu/{{this.slug}}" class="other_product-item-img">
+                        <img src="{{this.image}}" alt="">
+                    </a>
+                    <a href="/menu/{{this.slug}}" class="other_product-item-name">{{this.name}}</a>
+                    <p class="other_product-item-price">{{this.price}}đ</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
     </section>
     <footer>
         <p class="footer_copyright">Copyright © 2022 Cửa hàng. Powered by Cửa hàng</p>
@@ -609,6 +623,40 @@ footer{
     padding-left: 50px;
     align-items: center;
 }
+
+.other_product-name {
+    display: block;
+    margin: 20px 0 30px;
+    font-size: 18px;
+    color: #7f7b76;
+}
+.other_product-item {
+    margin-bottom: 30px;
+}
+.other_product-item-img img {
+    width: 100%;
+    border-radius: 5px;
+    height: 310px;
+    object-fit: cover;
+}
+.other_product-item-name {
+    display: block;
+    font-size: 22px;
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+.other_product-item-price {
+    display: block;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    text-align: center;
+}
+
 @keyframes modalFadeIn {
     from {
         opacity: 0;
