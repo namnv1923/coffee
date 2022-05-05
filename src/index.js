@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const { engine: handlebars } = require('express-handlebars');
 const methodOverride = require('method-override');
 const app = express();
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 
 const route = require('./routes/index');
 const db = require('./config/db');
