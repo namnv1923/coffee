@@ -1,0 +1,320 @@
+<div>
+    <header>
+        <div class="head">
+            <div class="title--book">
+                <h2>Thông tin đặt bàn online</h2>
+            </div>
+            <div class="sidebar">
+                <ul class="menu">
+                    <li><a href="../COFFEE SHOP.html#about">About</a></li>
+                    <li><a href="../COFFEE SHOP.html#menu">Menu</a></li>
+                    <li><a href="../COFFEE SHOP.html#testimonials">Testimonials</a></li>
+                    <li><a href="../COFFEE SHOP.html#gallery">Gallery</a></li>
+                    <li><a href="../COFFEE SHOP.html#contact">Contact</a></li>
+                </ul>
+                <div class="home">
+                    <ul class="home--link">
+                        <li><a href="../COFFEE SHOP.html#home">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div id="main">
+            <form action="" id="form">
+                <div id="infor__book">
+                    <div class="row">
+                        <div class="infor--items date__book ">
+                            <label for="date--input__book">
+                                Ngày đặt
+                            </label>
+                            <div>
+                                <input type="date" name="date--input__book" id="date--input__book" class="intput__book" required>
+                            </div>
+                        </div>
+                        <div class="infor--items hour__book ">
+                            <label for="hour--input__book">
+                                Giờ đặt
+                            </label>
+                            <div >
+                                <input type="time" name="hour--input__book" id="hour--input__book" class="intput__book" required>
+                            </div>
+                        </div>
+                        <div class="infor--items quantity__book ">
+                            <label for="quantity--input__book">
+                                Số người
+                            </label>
+                            <div>
+                                <input type="number" name="quantity--input__book" id="quantity--input__book" class="intput__book" value="2" min="1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="infor--items name__book ">
+                            <label for="name--input__book">
+                                Họ tên
+                            </label>
+                            <div class="infor--input">
+                                <input type="text" name="name--input__book" id="name--input__book" class="intput__book" placeholder="Họ tên khách hàng" required>
+                            </div>
+                        </div>
+                        <div class="infor--items email__book ">
+                            <label for="email--input__book">
+                                Email
+                            </label>
+                            <div>
+                                <input type="email" name="email--input__book" id="email--input__book" class="intput__book" placeholder="Email khách hàng" required>
+                            </div>
+                        </div>
+                        <div class="infor--items phone__book ">
+                            <label for="phone--input__book">
+                                Số điện thoại
+                            </label>
+                            <div>
+                                <input type="tel" name="phone--input__book" id="phone--input__book" class="intput__book" placeholder="Số điện thoại khách hàng" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node">
+                    <label for="node--input__book">
+                        Yêu cầu đặc biệt
+                    </label>
+                    <div>
+                         <textarea name="node--input__book" id="node--input__book" cols="30" rows="10" placeholder="Yêu cầu khách hàng" ></textarea>
+                     </div>
+                    </div>
+                    <div class="success-book">
+                        <button id="btn__book" type="submit">Đặt bàn ngay</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <p class="footer_copyright">Copyright © 2022 Cửa hàng. Powered by Cửa hàng</p>
+        <div class="footer_info">
+            <a href="#" class="footer_link">
+                <i class="ti-twitter"></i>
+            </a>
+            <a href="#" class="footer_link">
+                <i class="ti-facebook"></i>
+            </a>
+            <a href="#" class="footer_link">
+                <i class="ti-instagram"></i>
+            </a>
+        </div>
+    </footer>
+    <script>
+        //Lấy ngày hiện tại
+        document.getElementById('date--input__book').valueAsDate = new Date();
+        //Lấy giờ hiện tại
+        var time = new Date();
+        document.getElementById('hour--input__book').value = time.getHours() + ":" + time.getMinutes();
+
+    </script>
+</div>
+
+<style>
+header{
+    background-color: #b37e6b;
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    position: relative;
+    margin: auto;
+}
+.title--book{
+    font-size: 18px;
+    padding-left: 150px;
+    color: #fff;
+    line-height: 50px;
+}
+.title--book h2 {
+    margin: 0;
+}
+.sidebar{
+    position: relative;
+    padding-right: 50px;
+}
+.menu{
+    margin: 0 100px 0 0;
+}
+.menu li{
+    display: inline-block;
+}
+.menu li a{
+    text-decoration: none;
+    color: #fff;
+    line-height: 50px;
+    padding: 25px 30px;
+    font-size: 1.8rem;
+}
+.menu li:hover{
+    background-color: rgb(254, 254, 94);
+}
+.menu li:hover a{
+    color: #000;
+}
+.home--link{
+    display: none;
+    position: absolute;
+    top: 0;
+    list-style-type: none;
+    right: 100px;
+}
+.home--link li:hover{
+    background-color: rgb(254, 254, 94);
+    
+}
+.home--link li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 25px 30px;
+    line-height: 50px;
+    font-weight: 600;
+}
+.home--link li:hover a{
+    color: #000;
+}
+section{
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+}
+#main{
+    display: flex;
+}
+#form{
+    background-color: #edeae8;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+}
+#infor__book{
+    width: 85%;
+    margin: auto;
+}
+label{
+    display: block;
+}
+input:placeholder-shown{
+    font-size: 13px;
+}
+.infor--items{
+    width: 33.3333%;
+}
+.infor--items label {
+    font-size: 1.6rem;
+}
+.row{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 40px;
+}
+.intput__book{
+    width: 85%;
+    height: 40px;
+    border: none;
+    padding: 0 10px;
+    font-size: 15px;
+    margin-top: 10px;
+}
+/* .date__book{
+     
+}
+.hour__book{
+    
+}
+.name__book{
+    
+}
+.email__book{
+    
+}
+.phone__book{
+    
+}
+.quantity__book{
+    
+} */
+.node{
+    padding-top: 40px;
+    width: 95%;
+}
+.node label {
+    font-size: 1.6rem;
+}
+.success-book{
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+.success-book #btn__book{
+    width: 30%;
+    height: 50px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0.1px 0.1px 2px 2px rgb(128, 128, 128);
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.success-book #btn__book:hover{
+    background-color: greenyellow;
+    color: #000;
+}
+/* #date--input__book{
+    
+}
+#hour--input__book{
+    
+}
+#name--input__book{
+
+}
+#email--input__book{
+
+}
+#phone--input__book{
+
+}
+#quantity--input__book{
+
+} */
+#node--input__book{
+    border: none;
+    height: 70px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    resize: none;
+    font-size: 1.6rem;
+}
+
+footer{
+    background-color: #edeae8;
+    padding: 50px 40px;
+    text-align: center;
+    margin-top: 8px;
+}
+.footer_copyright{
+    font-size: 14px;
+    color: #7f7b76;
+}
+.footer_info{
+    float: right;
+}
+.footer_link{
+    padding: 10px;
+    font-size: 17px;
+}
+.footer_info a{
+    text-decoration: none;
+    color: #b37e6b;
+}
+</style>
